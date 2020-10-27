@@ -35,7 +35,7 @@ namespace Mapa
             services.AddControllers();
             services.AddSpaStaticFiles(options => options.RootPath = "client-app/dist");
 
-            string connection = Configuration.GetConnectionString("DefaultConnection");
+            string connection = Configuration.GetConnectionString("MapaContext");
             services.AddDbContext<Context>(options =>
                 options.UseMySql(connection));
 

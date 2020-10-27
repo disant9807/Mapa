@@ -13,6 +13,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.HttpOverrides;
 using Mapa.Services;
+using Mapa.Models;
+
+using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore;
 
 namespace Mapa
 {
@@ -30,6 +34,12 @@ namespace Mapa
         {
             services.AddControllers();
             services.AddSpaStaticFiles(options => options.RootPath = "client-app/dist");
+
+            string connection = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<Context>(options =>
+                options.UseMySql(connection));
+
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

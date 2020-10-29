@@ -31,12 +31,4 @@ namespace Mapa.Models.User
 
         public List<UserPermissionEntity> Permissions { get; set; }
     }
-
-    public class EventEntityConfiguration : IEntityTypeConfiguration<UserEntity>
-    {
-        public void Configure(EntityTypeBuilder<UserEntity> builder)
-        {
-            builder.Property(e => e.CreatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP");
-        }
-    }
 }

@@ -11,6 +11,18 @@ namespace Mapa.Models.User
         public int Id { get; set; }
         public string Name { get; set; }
 
+        public string Email { get; set; }
+
+        public string Phone { get; set; }
+
+        public string Login { get; set; }
+
+        public string Password { get; set; }
+
+        public DateTimeOffset? CreatedAt { get; set; }
+
+        public DateTimeOffset? DeletedAt { get; set; }
+
         public bool? Sex { get; set; }
 
         public List<UserChildrenEntity> Childrens { get; set; }

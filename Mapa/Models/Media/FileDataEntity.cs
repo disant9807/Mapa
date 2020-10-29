@@ -6,6 +6,9 @@ namespace Mapa.Models.Media
 {
     public class FileDataEntity
     {
+        public Guid Id { get; set; }
+
+
         /// <summary>
         /// Превью файла.
         /// </summary>

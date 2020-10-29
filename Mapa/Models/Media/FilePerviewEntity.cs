@@ -6,7 +6,7 @@ namespace Mapa.Models.Media
 {
     public class FilePreviewEntity
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         /// <summary>
         /// Превью файла.
         /// </summary>

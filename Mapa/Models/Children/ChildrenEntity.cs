@@ -8,6 +8,7 @@ namespace Mapa.Models.Children
 {
     public class ChildrenEntity
     {
+        public int Id { get; set; }
         public string Name { get; set; }
 
         public int? WithAge { get; set; }

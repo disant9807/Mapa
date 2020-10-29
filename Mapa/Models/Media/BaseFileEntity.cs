@@ -7,6 +7,7 @@ namespace Mapa.Models.Media
 {
     public abstract class BaseFileEntity
     {
+        public Guid Id { get; set; }
         /// <summary>
         /// Полное имя файла с расширением.
         /// </summary>

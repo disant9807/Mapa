@@ -55,7 +55,7 @@ namespace Mapa.Models.Events
             builder.Property(e => e.Annotation).IsRequired();
             builder.Property(e => e.Description).IsRequired();
             builder.Ignore(p => p.Location).Property<string>("LocationJson").IsRequired();
-            builder.Property(e => e.CreatedAt).HasDefaultValueSql("current_timestamp");
+            builder.Property(e => e.CreatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP");
         }
     }
 }

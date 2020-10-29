@@ -47,6 +47,8 @@ namespace Mapa.Models
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
+
             modelBuilder.Entity<IdentityRoleClaim<Guid>>(e => e.ToTable("RoleClaims", "identity"));
             modelBuilder.Entity<IdentityRole<Guid>>(e => e.ToTable("Roles", "identity"));
             modelBuilder.Entity<IdentityUserClaim<Guid>>(e => e.ToTable("UserClaims", "identity"));

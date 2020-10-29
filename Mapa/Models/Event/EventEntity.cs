@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Mapa.Models.Singles;
 using Mapa.Extensions;
 using Mapa.Models.Organization;
@@ -44,5 +44,18 @@ namespace Mapa.Models.Events
         public List<EventFilesEntity> Files { get; set; }
 
         public List<OrganizationEventEntity> Organizations { get; set; }
+    }
+
+    public class EventEntityConfiguration : IEntityTypeConfiguration<EventEntity>
+    {
+        public void Configure(EntityTypeBuilder<EventEntity> builder)
+        {
+            builder.ToTable("Events", "content");
+            builder.Property(e => e.Name).IsRequired();
+            builder.Property(e => e.Annotation).IsRequired();
+            builder.Property(e => e.Description).IsRequired();
+            builder.Ignore(p => p.Location).Property<string>("LocationJson").IsRequired();
+            builder.Property(e => e.CreatedAt).HasDefaultValueSql("current_timestamp");
+        }
     }
 }

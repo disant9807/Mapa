@@ -19,8 +19,6 @@ namespace Mapa.Models.User
 
         public string Password { get; set; }
 
-        public DateTimeOffset? CreatedAt { get; set; }
-
         public DateTimeOffset? DeletedAt { get; set; }
 
         public bool? Sex { get; set; }

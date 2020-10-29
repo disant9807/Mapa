@@ -16,7 +16,7 @@ using Mapa.Services;
 using Mapa.Models;
 
 using Microsoft.EntityFrameworkCore;
-using Pomelo.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace Mapa
 {
@@ -37,7 +37,8 @@ namespace Mapa
 
             string connection = Configuration.GetConnectionString("MapaContext");
             services.AddDbContext<Context>(options =>
-                options.UseMySql(connection));
+                options.UseMySql(connection, b => b.SchemaBehavior(MySqlSchemaBehavior.Translate,
+                (schema, entity) => $"{schema ?? "dbo"}_{entity}")));
 
             services.AddControllersWithViews();
         }

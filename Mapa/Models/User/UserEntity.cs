@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.Linq;
 using System.Threading.Tasks;
 using Mapa.Models.Children;
@@ -28,5 +30,13 @@ namespace Mapa.Models.User
         public List<UserChildrenEntity> Childrens { get; set; }
 
         public List<UserPermissionEntity> Permissions { get; set; }
+    }
+
+    public class EventEntityConfiguration : IEntityTypeConfiguration<UserEntity>
+    {
+        public void Configure(EntityTypeBuilder<UserEntity> builder)
+        {
+            builder.Property(e => e.CreatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP");
+        }
     }
 }

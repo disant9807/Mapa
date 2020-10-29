@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Mapa.Models.User;
 using Mapa.Models.Events;
@@ -11,7 +9,7 @@ using Mapa.Models.Organization;
 
 namespace Mapa.Models
 {
-    public class Context : DbContext
+    public class Context : IdentityDbContext<IdentityUser<Guid>, IdentityRole<Guid>, Guid>
     {
         public Context(DbContextOptions<Context> options) : base(options)
         {

@@ -47,14 +47,14 @@ namespace Mapa.Models
 
             modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
 
-            modelBuilder.Entity<IdentityRoleClaim<Guid>>(e => e.ToTable("ERoleClaims", "identity"));
-            modelBuilder.Entity<IdentityRole<Guid>>(e => e.ToTable("ERoles", "identity"));
-            modelBuilder.Entity<IdentityUserClaim<Guid>>(e => e.ToTable("EUserClaims", "identity"));
-            modelBuilder.Entity<IdentityRoleClaim<Guid>>(e => e.ToTable("ERoleClaims", "identity"));
-            modelBuilder.Entity<IdentityUserLogin<Guid>>(e => e.ToTable("EUserLogins", "identity"));
-            modelBuilder.Entity<IdentityUserRole<Guid>>(e => e.ToTable("EUserRoles", "identity"));
-            modelBuilder.Entity<IdentityUserToken<Guid>>(e => e.ToTable("EUserTokens", "identity"));
-            modelBuilder.Entity<IdentityUser<Guid>>(e => e.ToTable("EUsers", "identity"));
+            modelBuilder.Entity<IdentityRoleClaim<Guid>>(e => e.ToTable("RoleClaims", "identity"));
+            modelBuilder.Entity<IdentityRole<Guid>>(e => e.ToTable("Roles", "identity"));
+            modelBuilder.Entity<IdentityUserClaim<Guid>>(e => e.ToTable("UserClaims", "identity"));
+            modelBuilder.Entity<IdentityRoleClaim<Guid>>(e => e.ToTable("RoleClaims", "identity"));
+            modelBuilder.Entity<IdentityUserLogin<Guid>>(e => e.ToTable("UserLogins", "identity"));
+            modelBuilder.Entity<IdentityUserRole<Guid>>(e => e.ToTable("UserRoles", "identity"));
+            modelBuilder.Entity<IdentityUserToken<Guid>>(e => e.ToTable("UserTokens", "identity"));
+            modelBuilder.Entity<IdentityUser<Guid>>(e => e.ToTable("Users", "identity"));
 
         }
     }
